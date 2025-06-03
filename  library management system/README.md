@@ -37,8 +37,7 @@ A comprehensive console-based library management system built with Python that a
 2. Navigate to the project directory
 3. Run the program:
    ```bash
-   python app.py
-```
+   python app.py```
 
 # Usage
 ### Getting Started
@@ -129,7 +128,7 @@ Each book contains:
 
 # Menu Structure
 
- ```bash
+```bash
  Main Menu
 ├── Administrator
 │   ├── Add/Edit Book
@@ -147,7 +146,7 @@ Each book contains:
 └── User
     ├── Search Book
     └── User Info
-```
+    ```
 
 # File Structure
 
