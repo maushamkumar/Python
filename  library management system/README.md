@@ -128,8 +128,7 @@ Each book contains:
 
 # Menu Structure
 
-```bash
- Main Menu
+Main Menu
 ├── Administrator
 │   ├── Add/Edit Book
 │   │   ├── Add Book
@@ -145,8 +144,7 @@ Each book contains:
 │   └── Collect Book
 └── User
     ├── Search Book
-    └── User Info
-    ```
+    └── View User Info
 
 # File Structure
 
