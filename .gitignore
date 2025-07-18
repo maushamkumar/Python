@@ -6,3 +6,6 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 API/.env
+30 Days challenge/Day 26/backend/.env
+30 Days challenge/Day 26/notifications/
+30 Days challenge/Day 26/app.py
