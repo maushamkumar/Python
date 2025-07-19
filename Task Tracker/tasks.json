@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "description": "Buy groceries and cook dinner",
+    "status": "todo",
+    "createdAt": "2025-07-19 17:32:35",
+    "updatedAt": "2025-07-19 17:37:06"
+  },
+  {
+    "id": 2,
+    "description": "Talk to your friend",
+    "status": "todo",
+    "createdAt": "2025-07-19 17:36:02",
+    "updatedAt": "2025-07-19 17:36:02"
+  },
+  {
+    "id": 3,
+    "description": "kuch",
+    "status": "todo",
+    "createdAt": "2025-07-19 17:36:09",
+    "updatedAt": "2025-07-19 17:36:09"
+  },
+  {
+    "id": 4,
+    "description": "walking",
+    "status": "todo",
+    "createdAt": "2025-07-19 17:36:20",
+    "updatedAt": "2025-07-19 17:36:20"
+  }
+]

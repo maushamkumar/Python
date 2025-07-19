@@ -131,23 +131,23 @@ class TaskTracker:
 Task Tracker CLI
 
 Usage:
-    python task_tracker.py add "Task description"
-    python task_tracker.py update <id> "New description"
-    python task_tracker.py delete <id>
-    python task_tracker.py mark-in-progress <id>
-    python task_tracker.py mark-done <id>
-    python task_tracker.py list [status]
+    python app.py add "Task description"
+    python app.py update <id> "New description"
+    python app.py delete <id>
+    python app.py mark-in-progress <id>
+    python app.py mark-done <id>
+    python app.py list [status]
 
 Examples:
-    python task_tracker.py add "Buy groceries"
-    python task_tracker.py update 1 "Buy groceries and cook dinner"
-    python task_tracker.py delete 1
-    python task_tracker.py mark-in-progress 1
-    python task_tracker.py mark-done 1
-    python task_tracker.py list
-    python task_tracker.py list done
-    python task_tracker.py list todo
-    python task_tracker.py list in-progress
+    python app.py add "Buy groceries"
+    python app.py update 1 "Buy groceries and cook dinner"
+    python app.py delete 1
+    python app.py mark-in-progress 1
+    python app.py mark-done 1
+    python app.py list
+    python app.py list done
+    python app.py list todo
+    python app.py list in-progress
         """
         print(usage)
 
