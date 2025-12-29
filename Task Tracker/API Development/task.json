@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "task_name": "Learning about Fast API",
+    "description": "Kuch sikha aur bhut jada chatGPT ka help liya",
+    "status": "todo",
+    "created_time": "2025-10-08 07:08:07",
+    "updated_time": "2025-10-08 07:54:10",
+    "update_status": "in-progress"
+  },
+  {
+    "id": 2,
+    "task_name": "Learning about Fast API",
+    "description": "Kuch sikha aur bhut jada chatGPT ka help liya",
+    "status": "todo",
+    "created_time": "2025-10-08 07:08:55",
+    "updated_time": "2025-10-08 07:08:55"
+  }
+]
