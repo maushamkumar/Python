@@ -1,0 +1,37 @@
+app/__init__.py:
+
+This file is usually empty but is essential to mark the app directory as a Python package.
+app/main.py:
+
+This is your primary FastAPI application file.
+Imports: FastAPI, Depends, HTTPException, status, Response from fastapi, and your models and database modules.
+FastAPI app instance: app = FastAPI().
+Database Connection Check: It would have the while True loop with try-except to continuously attempt connecting to the database on startup, including time.sleep().
+Dependency for Database Session: The get_db function (which was moved to database.py around 5:39:58, but its usage would still be referenced here).
+SQLAlchemy Base Model Creation: models.Base.metadata.create_all(bind=engine).
+CRUD Path Operations:
+Get All Posts: An app.get("/posts") endpoint that queries all posts from the database using SQLAlchemy (e.g., db.query(models.Post).all()).
+Create Post: An app.post("/posts") endpoint to receive and save new posts to the database using SQLAlchemy (db.add, db.commit, db.refresh).
+Get Single Post: An app.get("/posts/{id}") endpoint to fetch a specific post by ID.
+Delete Post: An app.delete("/posts/{id}") endpoint to delete a post by ID.
+Update Post: An app.put("/posts/{id}") endpoint to update an existing post.
+app/database.py:
+
+This file handles your database connection logic.
+Imports: create_engine, sessionmaker from sqlalchemy.orm, declarative_base from sqlalchemy.ext.declarative, text from sqlalchemy.sql.expression.
+Database URL: SQLALCHEMY_DATABASE_URL string (e.g., "postgresql://user:password@localhost/fastapi").
+Engine Creation: engine = create_engine(SQLALCHEMY_DATABASE_URL).
+Session Local: SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine).
+Base Class: Base = declarative_base().
+get_db function: The dependency function to provide a database session for each request.
+app/models.py:
+
+This file defines your SQLAlchemy ORM models (which represent your database tables).
+Imports: Column, Integer, String, Boolean, TIMESTAMP from sqlalchemy, and Base from your database module.
+Post Model: A class named Post inheriting from Base.
+__tablename__ = "posts"
+Columns defined like id = Column(Integer, primary_key=True, nullable=False), title = Column(String, nullable=False), content = Column(String, nullable=False), published = Column(Boolean, server_default='TRUE', nullable=False), created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()')).
+The code in main.py would transition from using raw SQL queries with cursor.execute() to using SQLAlchemy's ORM methods (like db.query(...).all(), db.add(), db.delete(), db.update(), db.commit(), db.refresh()) for all CRUD operations.
+
+
+

@@ -1,0 +1,118 @@
+Pydantic is completely different library. 
+
+Once we create new post we want to return the data back to whoever send that request API. 
+How to instert new entry in database. 
+How to delete a entry from database. 
+How to update pre-existing row. 
+Update based on a condition
+
+
+Now we will focus creating user functionality. 
+Handling user Registration. 
+We have to define our model. or create to talbe in Mysql database 
+That going to hold our user information. 
+Since we are using sql alchemy we are going to create a new orm model
+just like we did for post so we can define what our mysql table ultimatly looks like. 
+Let's create a new class that i'm gonna called it user. 
+First we have figure out what are different column that we need. 
+We are going to handle Registration by user provding email address. 
+- A column where we can store emial (type string, check emial varification, No null, should be unnique)
+
+- Password (str, not null )
+- id (unique id)
+
+Hashing the user Password. 
+Within Fast API doc we have a article that tell how to do that.
+
+
+Next Router - That allow you fetch user based on their id. 
+One of them is it can be part of authentication depends on how you setup the frotent. 
+If you are using JWT token to setup to cookies then the frontend may not weather it logged in or not. 
+a lot time you'll see some of the api has endpoint to let you kind of retrieve information about your own account. 
+If you're able access it that mean you are logged in if not you need to fetch a new token. 
+Take a example of X. you need to retrieve if you want to view a user profile. 
+you have setup router so people can retrieve someone profile information. 
+Just for now setup router so you can retrieve information about specific information based on their ID. 
+
+
+We are keep adding more more path operation that seems unmangeable. to keep everything in main.py file 
+Instead what i want to do. I want to break it out. I want to create two seperate file. 
+one file gonna be all of the routes or path operation that work and deal with post
+and i want seperate file that will handle all the path operation working with users. 
+and it's not quite as simple as just moving these path operations to different file. 
+we do have to learn about something specific to fast API. And this is nothing unique about fast API. 
+You gonna see that every single web framework is going to have a way to kind of accomplish this. 
+and it usually involves something called routers. So we'll take a look at routers in this sections and how we can 
+use them to actually split up all of our path operation so that we can organize our code little bit better. 
+
+We gonna create new folder and call this routers. 
+
+
+Create a group that handle all the post operations. 
+A seperate group that handle user based operations.
+
+To add a group name it actually called tags 
+
+
+One small change when it comes to retrieving the user's credentials in our login router
+instead of of passing it in the body, we're going to use a built in utility in the Fast API. 
+
+
+Now its time varified that token is still is valid. 
+
+
+Mausham@gmail.com
+Mausham@143
+
+Get current user function from oauth2. 
+get_current_user just calling verify_access_token function. 
+But the idea behind this get_current_user is once the verify access token returns the token data, which is the ID, the get_current_user
+function should actually fetch the user from database. that way we can attact the user to any path operation, and then 
+we can perform any necessary logic. 
+
+
+-- Relationships 
+Whenever we see a good post on internet. Next thing we see. Who created this post.
+So every post is ultimately associated with the user account that created that post. 
+How do we know what post created by what user. This is where relational database really start to sine. 
+The idea behind a relational database is that you set up these realationships between tables. 
+So we need to setup some kind of special Relationships between the user's table and post table. 
+We create an extra column in our post table. and setup a special foregin key. 
+foregin key is how we tell sql this column here is connected to another table. 
+This is refer to one to many Relationships. (Because one user can create multiple post. However, a post can only associated with one user. )
+
+
+Because we are coder so we are not going to give to user to provide owner_id. 
+actually just grab the ID from the token, and then use that as the field.
+
+
+User can only able to delete their not others post. 
+
+
+We want to see their user ID. All the post we retrieve we have to send second query to 
+retrieve what is information for user with an ID of 23. and combine all the data 
+and figure out what post belong to what users. and what is their specific username. 
+Now with Sqlalchemy we kind of set it up 
+
+Now go to the model and setup a Relationships. 
+This gonna tell Sqlalchemy fetch some piece of information based on our Relationships. 
+
+
+You'll often see ? marks whenever you are searching for things. everything to the right of that 
+is what's reffered to as query parameters. 
+
+A query parameter is an optinal key value parameter that appears to the right of the question mark. 
+This query parameter allow us to filer the kind of request. 
+We want to retrieve post that 2 hour old. 
+
+Now what i want to do. I want to let the user be able to kind filter down on the post. 
+that they want to see. 
+First i gonna to specify how many post they want to retrieve together. 
+I want 10 posts. 100 posts. 
+
+
+Now allow the user to skip result. 
+if you want to send more than one query parameter. we just do the n keyword and we provide next 
+key value pair skip = 2 
+
+%20 which means space in your URL. 

@@ -1,0 +1,13 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Streamlit Frontend Dependencies
+streamlit==1.28.2
+requests==2.31.0
+
+# Database (SQLite is built into Python)
+# For production, consider PostgreSQL:
+# psycopg2-binary==2.9.9
